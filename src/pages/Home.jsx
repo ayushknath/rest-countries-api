@@ -20,7 +20,7 @@ function Home() {
         handleSearchFilter={handleSearchFilter}
         handleRegionFilter={handleRegionFilter}
       />
-      <CountryList searchedCountry={searchTerm} filteredCountry={region} />
+      <CountryList searchedCountry={searchTerm} regionWiseCountry={region} />
     </main>
   );
 }

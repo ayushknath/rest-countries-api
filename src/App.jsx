@@ -9,8 +9,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/country/:name" element={<CountryDetail />} />
+          <Route path="/rest-countries-api" element={<Home />} />
+          {/* <Route
+            path="/rest-countries-api/country/:name"
+            element={<CountryDetail />}
+          /> */}
         </Route>
       </Routes>
     </BrowserRouter>

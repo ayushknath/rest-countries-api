@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const CountryFilter = ({ handleSearchFilter, handleRegionFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [region, setRegion] = useState("");
+  const [region, setRegion] = useState("all");
 
   useEffect(() => {
     handleSearchFilter(searchTerm);
@@ -30,11 +30,9 @@ const CountryFilter = ({ handleSearchFilter, handleRegionFilter }) => {
         aria-label="Filter countries by region"
         className="rounded shadow p-4"
       >
-        <option value="" disabled>
-          Filter by Region
-        </option>
+        <option value="all">All</option>
         <option value="africa">Africa</option>
-        <option value="america">America</option>
+        <option value="americas">Americas</option>
         <option value="asia">Asia</option>
         <option value="europe">Europe</option>
         <option value="oceania">Oceania</option>

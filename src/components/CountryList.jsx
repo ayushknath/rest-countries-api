@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { nanoid } from "nanoid";
 
-const CountryList = ({ searchedCountry, filteredCountry }) => {
+const CountryList = ({ searchedCountry, regionWiseCountry }) => {
   const [countries, setCountries] = useState([]);
+  const [regionWise, setRegionWise] = useState({ region: "", countries: [] });
   const allCountries = useRef(countries);
 
   useEffect(() => {
     setCountries(() => {
-      return allCountries.current.filter((country) =>
+      return regionWise.countries.filter((country) =>
         country.name.common
           .toLowerCase()
           .includes(searchedCountry.toLowerCase())
@@ -18,14 +19,29 @@ const CountryList = ({ searchedCountry, filteredCountry }) => {
   }, [searchedCountry]);
 
   useEffect(() => {
-    filteredCountry
-      ? setCountries(() => {
-          return allCountries.current.filter((country) =>
-            country.region.toLowerCase().includes(filteredCountry.toLowerCase())
-          );
-        })
-      : setCountries(allCountries.current);
-  }, [filteredCountry]);
+    if (regionWiseCountry === "all") {
+      setCountries(allCountries.current);
+      setRegionWise({
+        region: "all",
+        countries: allCountries.current,
+      });
+      return;
+    }
+
+    setCountries(() => {
+      return allCountries.current.filter(
+        (country) =>
+          country.region.toLowerCase() === regionWiseCountry.toLowerCase()
+      );
+    });
+
+    setRegionWise({
+      region: regionWiseCountry,
+      countries: allCountries.current.filter(
+        (country) => country.region.toLowerCase() === regionWiseCountry
+      ),
+    });
+  }, [regionWiseCountry]);
 
   useEffect(() => {
     axios
@@ -34,6 +50,10 @@ const CountryList = ({ searchedCountry, filteredCountry }) => {
       )
       .then((res) => {
         setCountries(res.data);
+        setRegionWise({
+          region: "all",
+          countries: res.data,
+        });
         allCountries.current = res.data;
       })
       .catch((err) => {
