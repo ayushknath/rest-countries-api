@@ -24,25 +24,28 @@ const CountryDetail = () => {
   }, []);
 
   return (
-    <div className="max-w-[1450px] mx-auto px-4 py-12">
+    <main className="max-w-[1450px] mx-auto px-4 py-12">
       <nav className="mb-12">
         <button
-          className={`px-6 py-2 shadow hover:shadow-md rounded ${
-            theme === "dark" ? "bg-[#2b3743]" : "bg-white"
+          className={`px-6 py-2 shadow-md rounded ring-1 outline-none focus-visible:ring-4 transition-colors duration-75 ease-linear ${
+            theme === "dark"
+              ? "bg-darkFloat ring-slate-700 hover:bg-slate-700 focus-visible:ring-slate-500"
+              : "bg-white ring-slate-100 hover:bg-slate-50 focus-visible:ring-slate-300"
           }`}
+          aria-label="Back to all countries"
         >
           <Link to=".." className="flex items-center gap-x-3">
-            <FaArrowLeft /> Back
+            <span>&larr;</span> Back
           </Link>
         </button>
       </nav>
 
-      <main className="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start sm:justify-items-center gap-12">
+      <div className="grid grid-cols-1 items-center justify-items-start gap-20 sm:grid-cols-2 sm:justify-items-center">
         {country.map((c) => (
           <Fragment key={nanoid()}>
             <div className="w-full">
               <img
-                src={c.flags.png}
+                src={c.flags.svg}
                 alt={`Flag of ${name}`}
                 className="w-full"
               />
@@ -103,8 +106,10 @@ const CountryDetail = () => {
                     {c.borders.map((border) => (
                       <li
                         key={nanoid()}
-                        className={`px-6 py-1 shadow rounded ${
-                          theme === "dark" ? "bg-[#2b3743]" : "bg-white "
+                        className={`px-6 py-1 shadow-md rounded ring-1 transition-colors duration-75 ease-linear ${
+                          theme === "dark"
+                            ? "bg-darkFloat ring-slate-700"
+                            : "bg-white ring-slate-100"
                         }`}
                       >
                         {border}
@@ -116,8 +121,8 @@ const CountryDetail = () => {
             </section>
           </Fragment>
         ))}
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

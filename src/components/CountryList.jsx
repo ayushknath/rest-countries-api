@@ -65,15 +65,25 @@ const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
   return (
     <section className="countries-list grid grid-cols-1 grid-flow-row sm:grid-cols-4 justify-items-center gap-y-12 sm:gap-12 px-4">
       {countries.map((country) => (
-        <Link key={nanoid()} to={country.name.common}>
+        <Link
+          key={nanoid()}
+          to={country.name.common}
+          className={`outline-none focus-visible:ring-4 ${
+            theme === "dark"
+              ? "focus-visible:ring-slate-500"
+              : "focus-visible:ring-slate-300"
+          }`}
+        >
           <div
-            className={`country shadow rounded overflow-hidden ${
-              theme === "dark" ? "bg-[#2b3743]" : "bg-white"
+            className={`country shadow rounded ring-1 overflow-hidden transition-colors duration-75 ease-linear ${
+              theme === "dark"
+                ? "bg-darkFloat ring-slate-700 hover:bg-slate-700"
+                : "bg-white ring-slate-100 hover:bg-slate-50"
             }`}
           >
             <div className="country__flag">
               <img
-                src={country.flags.png}
+                src={country.flags.svg}
                 alt={`Flag of ${country.name.common}`}
               />
             </div>
@@ -84,7 +94,7 @@ const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
               <ul className="country__data flex flex-col gap-y-1">
                 <li>
                   <b>Population: </b>
-                  {country.population}
+                  {country.population.toLocaleString()}
                 </li>
                 <li>
                   <b>Region: </b>
