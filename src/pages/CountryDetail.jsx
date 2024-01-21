@@ -30,6 +30,7 @@ const CountryDetail = () => {
           className={`px-6 py-2 shadow hover:shadow-md rounded ${
             theme === "dark" ? "bg-darkFloat" : "bg-white"
           }`}
+          aria-label="Back to all countries"
         >
           <Link to=".." className="flex items-center gap-x-3">
             <FaArrowLeft /> Back
@@ -37,7 +38,7 @@ const CountryDetail = () => {
         </button>
       </nav>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-items-start sm:justify-items-center gap-12">
+      <div className="grid grid-cols-1 items-center justify-items-start gap-20 sm:grid-cols-2 sm:justify-items-center">
         {country.map((c) => (
           <Fragment key={nanoid()}>
             <div className="w-full">
