@@ -3,7 +3,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 const Header = ({ theme, changeTheme }) => {
   return (
     <header
-      className={`sticky top-0 z-50 py-4 shadow ${
+      className={`sticky top-0 z-50 py-4 shadow transition-colors duration-75 ease-linear ${
         theme === "dark" ? "bg-darkFloat text-white" : "bg-white"
       }`}
     >

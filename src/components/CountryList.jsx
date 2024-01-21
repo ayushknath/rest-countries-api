@@ -75,7 +75,7 @@ const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
           }`}
         >
           <div
-            className={`country shadow rounded ring-1 overflow-hidden ${
+            className={`country shadow rounded ring-1 overflow-hidden transition-colors duration-75 ease-linear ${
               theme === "dark"
                 ? "bg-darkFloat ring-slate-700 hover:bg-slate-700"
                 : "bg-white ring-slate-100 hover:bg-slate-50"

@@ -27,7 +27,7 @@ const CountryDetail = () => {
     <main className="max-w-[1450px] mx-auto px-4 py-12">
       <nav className="mb-12">
         <button
-          className={`px-6 py-2 shadow-md rounded ring-1 outline-none focus-visible:ring-4 ${
+          className={`px-6 py-2 shadow-md rounded ring-1 outline-none focus-visible:ring-4 transition-colors duration-75 ease-linear ${
             theme === "dark"
               ? "bg-darkFloat ring-slate-700 hover:bg-slate-700 focus-visible:ring-slate-500"
               : "bg-white ring-slate-100 hover:bg-slate-50 focus-visible:ring-slate-300"
@@ -106,7 +106,7 @@ const CountryDetail = () => {
                     {c.borders.map((border) => (
                       <li
                         key={nanoid()}
-                        className={`px-6 py-1 shadow-md rounded ring-1 ${
+                        className={`px-6 py-1 shadow-md rounded ring-1 transition-colors duration-75 ease-linear ${
                           theme === "dark"
                             ? "bg-darkFloat ring-slate-700"
                             : "bg-white ring-slate-100"

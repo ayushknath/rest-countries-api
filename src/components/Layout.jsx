@@ -11,7 +11,7 @@ const Layout = () => {
 
   return (
     <div
-      className={`max-w-screen min-h-screen ${
+      className={`max-w-screen min-h-screen transition-colors duration-75 ease-linear ${
         theme == "dark" ? "bg-darkBase text-white" : "bg-lightBase"
       }`}
     >
