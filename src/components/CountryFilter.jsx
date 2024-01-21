@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const CountryFilter = ({ handleSearchFilter, handleRegionFilter }) => {
+const CountryFilter = ({ theme, handleSearchFilter, handleRegionFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [region, setRegion] = useState("all");
 
@@ -21,14 +21,18 @@ const CountryFilter = ({ handleSearchFilter, handleRegionFilter }) => {
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search for a country..."
         aria-label="Search for a country"
-        className="w-full sm:w-1/3 mb-8 sm:mb-0 rounded shadow p-4"
+        className={`w-full sm:w-1/3 mb-8 sm:mb-0 rounded shadow p-4 ${
+          theme === "dark" ? "bg-[#2b3743]" : ""
+        }`}
       />
       <select
         name="region"
         value={region}
         onChange={(e) => setRegion(e.target.value)}
         aria-label="Filter countries by region"
-        className="rounded shadow p-4"
+        className={`rounded shadow p-4 ${
+          theme === "dark" ? "bg-[#2b3743]" : ""
+        }`}
       >
         <option value="all">All</option>
         <option value="africa">Africa</option>
