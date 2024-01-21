@@ -65,10 +65,20 @@ const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
   return (
     <section className="countries-list grid grid-cols-1 grid-flow-row sm:grid-cols-4 justify-items-center gap-y-12 sm:gap-12 px-4">
       {countries.map((country) => (
-        <Link key={nanoid()} to={country.name.common}>
+        <Link
+          key={nanoid()}
+          to={country.name.common}
+          className={`outline-none focus-visible:ring-4 ${
+            theme === "dark"
+              ? "focus-visible:ring-slate-500"
+              : "focus-visible:ring-slate-300"
+          }`}
+        >
           <div
-            className={`country shadow rounded overflow-hidden ${
-              theme === "dark" ? "bg-darkFloat" : "bg-white"
+            className={`country shadow rounded ring-1 overflow-hidden ${
+              theme === "dark"
+                ? "bg-darkFloat ring-slate-700 hover:bg-slate-700"
+                : "bg-white ring-slate-100 hover:bg-slate-50"
             }`}
           >
             <div className="country__flag">

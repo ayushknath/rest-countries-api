@@ -21,8 +21,10 @@ const CountryFilter = ({ theme, handleSearchFilter, handleRegionFilter }) => {
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search for a country..."
         aria-label="Search for a country"
-        className={`w-full sm:w-1/3 mb-8 sm:mb-0 rounded shadow p-4 ${
-          theme === "dark" ? "bg-darkFloat" : "bg-white"
+        className={`w-full sm:w-1/3 mb-8 sm:mb-0 rounded shadow p-4 ring-1 outline-none focus-visible:ring-4 ${
+          theme === "dark"
+            ? "bg-darkFloat ring-slate-700 focus-visible:ring-slate-500"
+            : "bg-white ring-slate-100 focus-visible:ring-slate-300"
         }`}
       />
       <select
@@ -30,8 +32,10 @@ const CountryFilter = ({ theme, handleSearchFilter, handleRegionFilter }) => {
         value={region}
         onChange={(e) => setRegion(e.target.value)}
         aria-label="Filter countries by region"
-        className={`rounded shadow p-4 ${
-          theme === "dark" ? "bg-darkFloat" : "bg-white"
+        className={`rounded shadow p-4 ring-1 outline-none focus-visible:ring-4 ${
+          theme === "dark"
+            ? "bg-darkFloat ring-slate-700 focus-visible:ring-slate-500"
+            : "bg-white ring-slate-100 focus-visible:ring-slate-300"
         }`}
       >
         <option value="all">All</option>
