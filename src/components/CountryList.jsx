@@ -84,7 +84,7 @@ const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
               <ul className="country__data flex flex-col gap-y-1">
                 <li>
                   <b>Population: </b>
-                  {country.population}
+                  {country.population.toLocaleString()}
                 </li>
                 <li>
                   <b>Region: </b>
