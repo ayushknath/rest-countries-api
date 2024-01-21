@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { nanoid } from "nanoid";
 
-const CountryList = ({ searchedCountry, regionWiseCountry }) => {
+const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
   const [countries, setCountries] = useState([]);
   const [regionWise, setRegionWise] = useState({ region: "", countries: [] });
   const allCountries = useRef(countries);
@@ -38,7 +38,8 @@ const CountryList = ({ searchedCountry, regionWiseCountry }) => {
     setRegionWise({
       region: regionWiseCountry,
       countries: allCountries.current.filter(
-        (country) => country.region.toLowerCase() === regionWiseCountry
+        (country) =>
+          country.region.toLowerCase() === regionWiseCountry.toLowerCase()
       ),
     });
   }, [regionWiseCountry]);
@@ -64,8 +65,12 @@ const CountryList = ({ searchedCountry, regionWiseCountry }) => {
   return (
     <section className="countries-list grid grid-cols-1 grid-flow-row sm:grid-cols-4 justify-items-center gap-y-12 sm:gap-12 px-4">
       {countries.map((country) => (
-        <Link key={nanoid()} to={`/country/${country.name.common}`}>
-          <div className="country shadow rounded bg-white overflow-hidden">
+        <Link key={nanoid()} to={country.name.common}>
+          <div
+            className={`country shadow rounded overflow-hidden ${
+              theme === "dark" ? "bg-[#2b3743]" : "bg-white"
+            }`}
+          >
             <div className="country__flag">
               <img
                 src={country.flags.png}
@@ -91,7 +96,7 @@ const CountryList = ({ searchedCountry, regionWiseCountry }) => {
                     {country.capital.map((capital, index) => (
                       <span key={nanoid()}>
                         {capital}
-                        {index !== country.capital.length - 1 && ","}
+                        {index !== country.capital.length - 1 && ", "}
                       </span>
                     ))}
                   </li>
