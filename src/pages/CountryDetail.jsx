@@ -45,7 +45,7 @@ const CountryDetail = () => {
           <Fragment key={nanoid()}>
             <div className="w-full">
               <img
-                src={c.flags.png}
+                src={c.flags.svg}
                 alt={`Flag of ${name}`}
                 className="w-full"
               />

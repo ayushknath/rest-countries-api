@@ -83,7 +83,7 @@ const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
           >
             <div className="country__flag">
               <img
-                src={country.flags.png}
+                src={country.flags.svg}
                 alt={`Flag of ${country.name.common}`}
               />
             </div>
