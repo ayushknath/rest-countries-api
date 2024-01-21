@@ -18,7 +18,7 @@ const Layout = () => {
   return (
     <div
       className={`w-full h-full ${
-        theme == "dark" ? "bg-[#202d36] text-white" : "bg-[#fafafa]"
+        theme == "dark" ? "bg-darkBase text-white" : "bg-lightBase"
       }`}
     >
       <Header theme={theme} changeTheme={changeTheme} />

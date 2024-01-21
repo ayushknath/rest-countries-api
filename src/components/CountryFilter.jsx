@@ -22,7 +22,7 @@ const CountryFilter = ({ theme, handleSearchFilter, handleRegionFilter }) => {
         placeholder="Search for a country..."
         aria-label="Search for a country"
         className={`w-full sm:w-1/3 mb-8 sm:mb-0 rounded shadow p-4 ${
-          theme === "dark" ? "bg-[#2b3743]" : ""
+          theme === "dark" ? "bg-darkFloat" : "bg-white"
         }`}
       />
       <select
@@ -31,7 +31,7 @@ const CountryFilter = ({ theme, handleSearchFilter, handleRegionFilter }) => {
         onChange={(e) => setRegion(e.target.value)}
         aria-label="Filter countries by region"
         className={`rounded shadow p-4 ${
-          theme === "dark" ? "bg-[#2b3743]" : ""
+          theme === "dark" ? "bg-darkFloat" : "bg-white"
         }`}
       >
         <option value="all">All</option>

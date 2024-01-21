@@ -4,7 +4,7 @@ const Header = ({ theme, changeTheme }) => {
   return (
     <header
       className={`sticky top-0 z-50 py-4 shadow ${
-        theme === "dark" ? "bg-[#2b3743] text-white" : "bg-white"
+        theme === "dark" ? "bg-darkFloat text-white" : "bg-white"
       }`}
     >
       <div className="max-w-[1450px] mx-auto px-4 flex items-center justify-between">

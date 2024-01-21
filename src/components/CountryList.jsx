@@ -68,7 +68,7 @@ const CountryList = ({ theme, searchedCountry, regionWiseCountry }) => {
         <Link key={nanoid()} to={country.name.common}>
           <div
             className={`country shadow rounded overflow-hidden ${
-              theme === "dark" ? "bg-[#2b3743]" : "bg-white"
+              theme === "dark" ? "bg-darkFloat" : "bg-white"
             }`}
           >
             <div className="country__flag">
